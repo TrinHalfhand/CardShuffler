@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardShuffler", "CardShuffler\CardShuffler.csproj", "{1307F645-641F-44EC-869A-8DDE4F8EB988}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardTester", "CardTester\CardTester.csproj", "{B8E92DB2-2C52-485F-87EF-146FDF9D12D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1307F645-641F-44EC-869A-8DDE4F8EB988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1307F645-641F-44EC-869A-8DDE4F8EB988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1307F645-641F-44EC-869A-8DDE4F8EB988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1307F645-641F-44EC-869A-8DDE4F8EB988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E92DB2-2C52-485F-87EF-146FDF9D12D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E92DB2-2C52-485F-87EF-146FDF9D12D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E92DB2-2C52-485F-87EF-146FDF9D12D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E92DB2-2C52-485F-87EF-146FDF9D12D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB25E35A-21C8-4D39-AE2B-F0C216B668E6}
+	EndGlobalSection
+EndGlobal
