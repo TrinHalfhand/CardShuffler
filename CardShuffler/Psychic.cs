@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-using static CardShuffler.TarotDeck;
 
 namespace CardShuffler
 {
@@ -11,32 +7,10 @@ namespace CardShuffler
     {
         public static string TranslateCard(PlayingCards.Card cardToTranslate)
         {
-            //figure out the suit
-            int suitLocation = (int)cardToTranslate.CardSuit;
-            var suiteMeaning = (Suit)suitLocation;
-            var rankMeaning = "";
-
-            int.TryParse(cardToTranslate.CardRank, out int rankLocation);
-
-            switch (suiteMeaning)
-            {
-                case Suit.Cups:
-                    rankMeaning = ((Cups)(rankLocation - 1)).GetRankDescription();
-                    break;
-                case Suit.Pentacles:
-                    rankMeaning = ((Pentacles)(rankLocation - 1)).GetRankDescription();
-                    break;
-                case Suit.Swords:
-                    rankMeaning = ((Swords)(rankLocation - 1)).GetRankDescription();
-                    break;
-                case Suit.Wands:
-                    rankMeaning = ((Wands)(rankLocation - 1)).GetRankDescription();
-                    break;
-            }
-
+            var rankMeaning = PlayingCards.RankMeaning(cardToTranslate);
             return rankMeaning;
         }
-        
+
         public static string GetRankDescription(this Object enumerationValue)
         {
             var type = enumerationValue.GetType();
@@ -56,5 +30,5 @@ namespace CardShuffler
             }
             return enumerationValue.ToString();
         }
-   }
+    }
 }

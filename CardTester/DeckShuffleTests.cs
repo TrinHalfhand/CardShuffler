@@ -1,6 +1,5 @@
 using CardShuffler;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace CardTester
@@ -62,7 +61,7 @@ namespace CardTester
         [TestMethod]
         public void ReadFirstCard_SuitTest3()
         {
-            PlayingCards.Card card = new PlayingCards.Card(PlayingCards.Suit.Spades, "J");
+            PlayingCards.Card card = new PlayingCards.Card(PlayingCards.Suit.Spades, "11");
             var messages = Psychic.TranslateCard(card);
             Assert.AreEqual(messages, "Knave of Swords: Someone on a mission");
         }
