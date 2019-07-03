@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using static CardShuffler.TarotDeck;
+﻿using System.Collections.Generic;
 
 namespace CardShuffler
 {
-    internal interface IDeckInterface
+    internal interface IDeckInterface<T>
     {
-        List<PlayingCards.Card> GetCurrentDeck();
-        List<PlayingCards.Card> ReadFirst3Cards();
+        List<T> GetCurrentDeck();
+        List<T> DrawCards(int count);
         void ShuffleTheDeck();
     }
 }

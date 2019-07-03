@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace CardShuffler
 {
+    //Database
     public class PlayingCards
     {
         public enum Suit

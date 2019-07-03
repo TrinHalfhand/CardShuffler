@@ -8,7 +8,7 @@ namespace CardTester
     [TestClass]
     public class CardTester
     {
-        readonly TarotDeck deck = new TarotDeck();
+        readonly TarotDeck deck = new TarotDeck(new PlayingCards());
 
         [TestMethod]
         public void DeckHasRightCount()
@@ -18,17 +18,17 @@ namespace CardTester
         }
         public void TarotReadHasRightCount()
         {
-            var currentDeck = deck.ReadFirst3Cards();
+            var currentDeck = deck.DrawCards(3);
             Assert.AreEqual(currentDeck.Count(), 3);
         }
 
         [TestMethod]
         public void ShuffleDeckAgain()
         {
-            var currentCards = deck.ReadFirst3Cards();
+            var currentCards = deck.DrawCards(3);
             //shuffle deck
             deck.ShuffleTheDeck();
-            var nextCards = deck.ReadFirst3Cards();
+            var nextCards = deck.DrawCards(3);
 
             Assert.AreNotEqual(nextCards[0].CardRank + nextCards[0].CardSuit, currentCards[0].CardRank + currentCards[0].CardSuit);
             Assert.AreNotEqual(nextCards[1].CardRank + nextCards[1].CardSuit, currentCards[1].CardRank + currentCards[1].CardSuit);
@@ -38,7 +38,7 @@ namespace CardTester
         [TestMethod]
         public void ReadFirstCard_MustHaveContent()
         {
-            var currentCards = deck.ReadFirst3Cards();
+            var currentCards = deck.DrawCards(3);
             string message = Psychic.TranslateCard(currentCards[0]);
             Assert.IsNotNull(message);
         }

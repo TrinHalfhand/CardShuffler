@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardShuffler", "CardShuffler\CardShuffler.csproj", "{1307F645-641F-44EC-869A-8DDE4F8EB988}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardShuffler", "CardShuffler\CardShuffler.csproj", "{1307F645-641F-44EC-869A-8DDE4F8EB988}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardTester", "CardTester\CardTester.csproj", "{B8E92DB2-2C52-485F-87EF-146FDF9D12D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardTester", "CardTester\CardTester.csproj", "{B8E92DB2-2C52-485F-87EF-146FDF9D12D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

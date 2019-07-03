@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace CardShuffler
 {
-    public class TarotDeck : IDeckInterface
+    //DAL
+    public class TarotDeck : IDeckInterface<PlayingCards.Card>
     {
         public enum Suit
         {
@@ -137,11 +137,11 @@ namespace CardShuffler
             King
         }
 
-        private PlayingCards activeDeck;
+        private readonly PlayingCards activeDeck;
 
-        public TarotDeck()
+        public TarotDeck(PlayingCards cards)
         {
-            activeDeck = new PlayingCards();
+            activeDeck = cards;
             ShuffleTheDeck();
         }
 
@@ -150,9 +150,9 @@ namespace CardShuffler
             return activeDeck.Cards;
         }
 
-        public List<PlayingCards.Card> ReadFirst3Cards()
+        public List<PlayingCards.Card> DrawCards(int count)
         {
-            return activeDeck.Cards.Take(3).ToList();
+            return activeDeck.Cards.Take(count).ToList();
         }
 
         public void ShuffleTheDeck()
