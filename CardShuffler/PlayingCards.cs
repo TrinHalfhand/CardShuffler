@@ -9,13 +9,13 @@ namespace CardShuffler
     {
         public enum Suit
         {
+            [Description("TarotDeck.Cups")]
             Hearts,
             Diamonds,
             Clubs,
             Spades
         }
 
-        [Description("Cups: Love, Emotion, and Family")]
         public enum Rank
         {
             Ace,
