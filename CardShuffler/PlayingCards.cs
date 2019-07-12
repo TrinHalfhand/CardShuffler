@@ -66,16 +66,16 @@ namespace CardShuffler
             switch (cardToTranslate.CardSuit)
             {
                 case Suit.Hearts:
-                    rankMeaning = ((TarotDeck.Cups)(cardToTranslate.CardRank)).GetRankDescription();
+                    rankMeaning = ((TarotCards.Cups)(cardToTranslate.CardRank)).GetRankDescription();
                     break;
                 case Suit.Diamonds:
-                    rankMeaning = ((TarotDeck.Pentacles)(cardToTranslate.CardRank)).GetRankDescription();
+                    rankMeaning = ((TarotCards.Pentacles)(cardToTranslate.CardRank)).GetRankDescription();
                     break;
                 case Suit.Clubs:
-                    rankMeaning = ((TarotDeck.Wands)(cardToTranslate.CardRank)).GetRankDescription();
+                    rankMeaning = ((TarotCards.Wands)(cardToTranslate.CardRank)).GetRankDescription();
                     break;
                 case Suit.Spades:
-                    rankMeaning = ((TarotDeck.Swords)(cardToTranslate.CardRank)).GetRankDescription();
+                    rankMeaning = ((TarotCards.Swords)(cardToTranslate.CardRank)).GetRankDescription();
                     break;
                 default:
                     break;

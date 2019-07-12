@@ -7,7 +7,7 @@ namespace CardTester
     [TestClass]
     public class CardTester
     {
-        readonly TarotDeck deck = new TarotDeck(new PlayingCards());
+        readonly PlayingCardTarotDeck deck = new PlayingCardTarotDeck(new PlayingCards());
 
         [TestMethod]
         public void DeckHasRightCount()
