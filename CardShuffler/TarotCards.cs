@@ -154,16 +154,52 @@ namespace CardShuffler
 
             foreach (Suit suit in Enum.GetValues(typeof(Suit)))
             {
-                for (int y = 1; y < 14; y++)
+                //loop each tarot card in the deck
+                switch (suit)
                 {
-                    Cards.Add(new Card(suit, y));
+                    case Suit.Cups:
+                        foreach(Cups cup in Enum.GetValues(typeof(Cups)))
+                            Cards.Add(new Card(suit, (int)cup));
+                        break;
+                    case Suit.Pentacles:
+                        foreach (Pentacles pentacle in Enum.GetValues(typeof(Pentacles)))
+                            Cards.Add(new Card(suit, (int)pentacle));
+                        break;
+                    case Suit.Swords:
+                        foreach (Swords sword in Enum.GetValues(typeof(Swords)))
+                            Cards.Add(new Card(suit, (int)sword));
+                        break;
+                    case Suit.Wands:
+                        foreach (Wands wand in Enum.GetValues(typeof(Wands)))
+                            Cards.Add(new Card(suit, (int)wand));
+                        break;
                 }
             }
         }
 
         public static string RankMeaning(Card cardToTranslate)
         {
-            return null;
+            string rankMeaning = "";
+
+            switch (cardToTranslate.CardSuit)
+            {
+                case Suit.Cups:
+                    rankMeaning = ((TarotCards.Cups)(cardToTranslate.CardRank)).GetRankDescription();
+                    break;
+                case Suit.Pentacles:
+                    rankMeaning = ((TarotCards.Pentacles)(cardToTranslate.CardRank)).GetRankDescription();
+                    break;
+                case Suit.Wands:
+                    rankMeaning = ((TarotCards.Wands)(cardToTranslate.CardRank)).GetRankDescription();
+                    break;
+                case Suit.Swords:
+                    rankMeaning = ((TarotCards.Swords)(cardToTranslate.CardRank)).GetRankDescription();
+                    break;
+                default:
+                    break;
+            }
+
+            return rankMeaning;
         }
     }
 }
