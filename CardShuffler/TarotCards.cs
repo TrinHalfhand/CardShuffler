@@ -7,6 +7,14 @@ namespace CardShuffler
     //Database
     public class TarotCards
     {
+        public enum Suit
+        {
+            Cups,
+            Pentacles,
+            Wands,
+            Swords
+        }
+
         public enum Cups
         {
             [Description("Ace of Cups: New love or closer relationship")]
@@ -125,6 +133,37 @@ namespace CardShuffler
             Queen,
             [Description("")]
             King
+        }
+
+        public class Card
+        {
+            public Suit CardSuit { get; set; }
+            public int CardRank { get; set; }
+            public Card(Suit s, int v)
+            {
+                CardSuit = s;
+                CardRank = v;
+            }
+        }
+
+        public List<Card> Cards { get; set; }
+
+        public TarotCards()
+        {
+            Cards = new List<Card>();
+
+            foreach (Suit suit in Enum.GetValues(typeof(Suit)))
+            {
+                for (int y = 1; y < 14; y++)
+                {
+                    Cards.Add(new Card(suit, y));
+                }
+            }
+        }
+
+        public static string RankMeaning(Card cardToTranslate)
+        {
+            return null;
         }
     }
 }

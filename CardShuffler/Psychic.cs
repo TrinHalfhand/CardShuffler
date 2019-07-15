@@ -11,6 +11,12 @@ namespace CardShuffler
             return rankMeaning;
         }
 
+        public static string TranslateCard(TarotCards.Card cardToTranslate)
+        {
+            var rankMeaning = TarotCards.RankMeaning(cardToTranslate);
+            return rankMeaning;
+        }
+
         public static string GetRankDescription(this Object enumerationValue)
         {
             var type = enumerationValue.GetType();
