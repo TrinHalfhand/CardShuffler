@@ -9,129 +9,141 @@ namespace CardShuffler
     {
         public enum Suit
         {
+            [Description("These cards are linked to the heart and to specific feelings such as love, bliss, melancholy, sorrow.")]
             Cups,
+            [Description("These cards are linked to physical or external level of consciousness and thus mirror the outer situations of your health, finances, work, and creativity.")]
             Pentacles,
+            [Description("These cards are linked to spirituality, inspiration, determination, strength, intuition, creativity, ambition and expansion, and original thought")]
             Wands,
+            [Description("These cards are linked to the mind and intellect. Mirroring the quality of mind present in your thoughts, attitudes, and beliefs")]
             Swords
         }
 
         public enum Cups
         {
-            [Description("Ace of Cups: New love or closer relationship")]
+            [Description("Love, new relationships, compassion, creativity")]
             Ace,
-            [Description("Two: Union of people, ideas, or talents")]
+            [Description("Unified love, partnership, mutual attraction")]
             Two,
-            [Description("Three: connection")]
+            [Description("Celebration, friendship, creativity, collaborations")]
             Three,
-            [Description("Four: opportunity that should not be missed")]
+            [Description("Mediation, contemplation, apathy, reevaluation")]
             Four,
-            [Description("Five: Disturbance")]
+            [Description("Regret, failure, disapppointment, pessimism")]
             Five,
-            [Description("Six: Harmony")]
+            [Description("Revisiting the past, childhood memories, innocence, joy")]
             Six,
-            [Description("Seven: Mystery")]
+            [Description("Opportunities, choices, wishful thinking, illusion")]
             Seven,
-            [Description("Eight: Movement")]
+            [Description("Disappointment, abandonment, withdrawal, escapism")]
             Eight,
-            [Description("Nine: Growth")]
+            [Description("Contentment, satisfaction, gratitude, wish come true")]
             Nine,
-            [Description("Ten: Completion")]
+            [Description("Divine love, blissful relationships, harmony, alignment")]
             Ten,
-            [Description("")]
+            [Description("Creative opportunities, intuitive messages, curiosity, possibility")]
+            Page,
+            [Description("Creativity, romance, charm, imagination, beauty")]
             Knave,
-            [Description("")]
+            [Description("Compssionate, caring, emotionally stable, intuitive, in flow")]
             Queen,
-            [Description("")]
+            [Description("Emotionally balanced, compassionate, diplomatic")]
             King
         }
 
         public enum Pentacles
         {
-            [Description("")]
+            [Description("A new financial or career opportunity, manifestation, abundance")]
             Ace,
-            [Description("Two: Balance")]
+            [Description("Mutiple priorities, time management, prioritisation, adaptability")]
             Two,
-            [Description("Three: Connection")]
+            [Description("Teamwork, collaboration, learning, implementation")]
             Three,
-            [Description("Four: Stability")]
+            [Description("Saving money, security, conservatism, scarcity, control")]
             Four,
-            [Description("Five: Disturbance")]
+            [Description("Financial loss, poverty, lack mindset, isolation, worry")]
             Five,
-            [Description("Six: Harmony")]
+            [Description("Giving, receiving, sharing, wealth, generosity, charity")]
             Six,
-            [Description("Seven: Mystery")]
+            [Description("Long-term view, sustainable results, perserverance, investment")]
             Seven,
-            [Description("Eight: Movement")]
+            [Description("Apprenticeship, repetitive tasks, mastery, skill development")]
             Eight,
-            [Description("Nine: Growth")]
+            [Description("Abundance, luxury, selfsufficiency, financial independence")]
             Nine,
-            [Description("Ten: Completion")]
+            [Description("Wealth, financial security, family, long-term success, contribution")]
             Ten,
-            [Description("")]
-            Jack,
-            [Description("")]
+            [Description("Manifestation, financial opportunity, skill development")]
+            Page,
+            [Description("Hard work, productivity, routine, conservatism")]
+            Knave,
+            [Description("Nurturing, practical, providing financially, a working parent")]
             Queen,
-            [Description("")]
+            [Description("Wealth, business, leadership, security, discipline, abundance")]
             King
         }
 
         public enum Wands
         {
-            [Description("Ace of Wands: New Inspiration and Mental Energy")]
+            [Description("Inspiration, new opportunities, growth, potential")]
             Ace,
-            [Description("Two: Balance")]
+            [Description("Future planning, progress, decisions, discovery")]
             Two,
-            [Description("Three: Connection")]
+            [Description("Progress, expansion, forsight, overseas opportunities")]
             Three,
-            [Description("Four: Stability")]
+            [Description("Celebration, joy, harmony, relaxation, homecoming")]
             Four,
-            [Description("Five: Disturbance")]
+            [Description("Conflict, disagreements, competition, tension, diversity")]
             Five,
-            [Description("Six: Harmony")]
+            [Description("Sucess, public recongnition, progress, self-confidence")]
             Six,
-            [Description("Seven: Mystery")]
+            [Description("Challenge, competition, protection, perserverance")]
             Seven,
-            [Description("Eight: Movement")]
+            [Description("Movement, fast paced change, action, alignment, air travel")]
             Eight,
-            [Description("Nine: Growth")]
+            [Description("Resilience, courage, persistence, test of faith, boundaries")]
             Nine,
-            [Description("Ten: Completion")]
+            [Description("Burden, extra responsibility, hard work, completion")]
             Ten,
-            [Description("")]
-            Jack,
-            [Description("")]
+            [Description("Inspiration, ideas, discovery, limitless potential, free spirit")]
+            Page,
+            [Description("Energy, passion, inspired action, adventure, impulsiveness")]
+            Knave,
+            [Description("Courage, confidence, independence, social butterfly, determination")]
             Queen,
-            [Description("")]
+            [Description("Natural-born leader, vision, entrepreneur, honour")]
             King
         }
 
         public enum Swords
         {
-            [Description("")]
+            [Description("Breakthroughs, new ideas, mental clarity, success")]
             Ace,
-            [Description("Two: Balance")]
+            [Description("Difficult decisions, weighing up options, an impasse, avoidance")]
             Two,
-            [Description("Three: Connection")]
+            [Description("Heartbreak, emotional pain, sorrow, grief, hurt")]
             Three,
-            [Description("Four: Stability")]
+            [Description("Rest, relaxation, meditation, contemplation, recuperation")]
             Four,
-            [Description("Five: Disturbance")]
+            [Description("Conflict, disagreements, competition, defeat, winning at all costs")]
             Five,
-            [Description("Six: Harmony")]
+            [Description("Transition, change, rite of passage, releasing baggage")]
             Six,
-            [Description("Seven: Mystery")]
+            [Description("Betrayal, deception, getting away with something, acting strategically")]
             Seven,
-            [Description("Eight: Movement")]
+            [Description("Negative thoughts, selfimposed restriction, imprisonment, victim mentality")]
             Eight,
-            [Description("Nine: Growth")]
+            [Description("Anxiety, worry, fear, depression, nightmares")]
             Nine,
-            [Description("Ten: Completion")]
+            [Description("Painful endings, deep wounds, betrayal, loss, crisis")]
             Ten,
-            [Description("Knave of Swords: Someone on a mission")]
+            [Description("New ideas, curiousity, thirst for knowledge, new ways of communicating")]
+            Page,
+            [Description("Ambitious, action-oriented, driven to succeed, fast-thinking")]
             Knave,
-            [Description("")]
+            [Description("Independent, unbiased judgement, clear boundaries, direct communication")]
             Queen,
-            [Description("")]
+            [Description("Mental clarity, intellectual power, authority, truth")]
             King
         }
 
