@@ -2,7 +2,7 @@
 
 namespace CardShuffler
 {
-    internal interface IDeckInterface<T>
+    public interface IDeckInterface<T>
     {
         List<T> GetCurrentDeck();
         List<T> DrawCards(int count);

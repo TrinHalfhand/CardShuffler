@@ -5,18 +5,6 @@ namespace CardShuffler
 {
     public static class Psychic
     {
-        public static string TranslateCard(PlayingCards.Card cardToTranslate)
-        {
-            var rankMeaning = PlayingCards.RankMeaning(cardToTranslate);
-            return rankMeaning;
-        }
-
-        public static string TranslateCard(TarotCards.Card cardToTranslate)
-        {
-            var rankMeaning = TarotCards.RankMeaning(cardToTranslate);
-            return rankMeaning;
-        }
-
         public static string GetRankDescription(this Object enumerationValue)
         {
             var type = enumerationValue.GetType();
@@ -35,6 +23,18 @@ namespace CardShuffler
                 }
             }
             return enumerationValue.ToString();
+        }
+
+        public static string TranslateCard(PlayingCards.Card cardToTranslate)
+        {
+            string rankMeaning = PlayingCards.RankMeaning(cardToTranslate);
+            return rankMeaning;
+        }
+
+        public static string TranslateCard(TarotCards.Card cardToTranslate)
+        {
+            string rankMeaning = TarotCards.RankMeaning(cardToTranslate);
+            return rankMeaning;
         }
     }
 }

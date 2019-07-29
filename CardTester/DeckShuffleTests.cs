@@ -7,7 +7,14 @@ namespace CardTester
     [TestClass]
     public class TarotCardTester
     {
-        readonly StandardTarotDeck deck = new StandardTarotDeck(new TarotCards());
+        readonly DeckController deck;
+
+        public TarotCardTester()
+        {
+            PlayingCards playingCards = new PlayingCards();
+            PlayingCardTarotDeck playingCardService = new PlayingCardTarotDeck(playingCards);
+            deck = new DeckController(playingCardService);
+        }
 
         [TestMethod]
 
@@ -31,7 +38,7 @@ namespace CardTester
             var nextCards = deck.DrawCards(3);
 
             Assert.AreNotEqual(nextCards[0].CardRank.ToString() + nextCards[0].CardSuit.ToString(), currentCards[0].CardRank.ToString() + nextCards[0].CardSuit.ToString());
-            Assert.AreNotEqual(nextCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString(), currentCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString()); Assert.AreNotEqual(nextCards[2].CardRank, currentCards[2].CardRank);
+            Assert.AreNotEqual(nextCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString(), currentCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString());
             Assert.AreNotEqual(nextCards[2].CardRank.ToString() + nextCards[2].CardSuit.ToString(), currentCards[2].CardRank.ToString() + nextCards[2].CardSuit.ToString());
         }
 
@@ -94,7 +101,7 @@ namespace CardTester
             var nextCards = deck.DrawCards(3);
 
             Assert.AreNotEqual(nextCards[0].CardRank.ToString() + nextCards[0].CardSuit.ToString(), currentCards[0].CardRank.ToString() + nextCards[0].CardSuit.ToString());
-            Assert.AreNotEqual(nextCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString(), currentCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString()); Assert.AreNotEqual(nextCards[2].CardRank, currentCards[2].CardRank);
+            Assert.AreNotEqual(nextCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString(), currentCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString());
             Assert.AreNotEqual(nextCards[2].CardRank.ToString() + nextCards[2].CardSuit.ToString(), currentCards[2].CardRank.ToString() + nextCards[2].CardSuit.ToString());
         }
 
