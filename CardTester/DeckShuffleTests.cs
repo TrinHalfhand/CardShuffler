@@ -14,8 +14,8 @@ namespace CardTester
 
         public TarotCardTester()
         {
-            PlayingCards playingCards = new PlayingCards();
-            PlayingCardTarotDeck playingCardService = new PlayingCardTarotDeck(playingCards);
+            TarotCards playingCards = new TarotCards();
+            StandardTarotDeck playingCardService = new StandardTarotDeck(playingCards);
             deck = new DeckController(playingCardService);
         }
 
@@ -28,7 +28,7 @@ namespace CardTester
             Assert.IsTrue(currentDeckResult is JsonResult);
             var currentText = (currentDeckResult as JsonResult).Value.ToString();
             var currentDeck = JsonConvert.DeserializeObject<List<PlayingCards.Card>>(currentText);
-            Assert.AreEqual(currentDeck.Count(), 52);
+            Assert.AreEqual(currentDeck.Count(), 56);
         }
         public void TarotReadHasRightCount()
         {
@@ -97,21 +97,21 @@ namespace CardTester
         public void DeckHasRightCount()
         {
             var currentDeck = deck.GetCurrentDeck();
-            Assert.AreEqual(currentDeck.Count(), 52);
+            Assert.AreEqual(currentDeck.Count, 52);
         }
         public void TarotReadHasRightCount()
         {
             var currentDeck = deck.DrawCards(3);
-            Assert.AreEqual(currentDeck.Count(), 3);
+            Assert.AreEqual(currentDeck.Count, 3);
         }
 
         [TestMethod]
         public void ShuffleDeckAgain()
         {
-            var currentCards = deck.DrawCards(3);
+            var currentCards = deck.DrawCards(3).OfType<PlayingCards.Card>().ToList(); 
             //shuffle deck
             deck.ShuffleTheDeck(3);
-            var nextCards = deck.DrawCards(3);
+            var nextCards = deck.DrawCards(3).OfType<PlayingCards.Card>().ToList(); 
 
             Assert.AreNotEqual(nextCards[0].CardRank.ToString() + nextCards[0].CardSuit.ToString(), currentCards[0].CardRank.ToString() + currentCards[0].CardSuit.ToString());
             Assert.AreNotEqual(nextCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString(), currentCards[1].CardRank.ToString() + currentCards[1].CardSuit.ToString());
@@ -121,7 +121,7 @@ namespace CardTester
         [TestMethod]
         public void ReadFirstCard_MustHaveContent()
         {
-            var currentCards = deck.DrawCards(3);
+            var currentCards = deck.DrawCards(3).OfType<PlayingCards.Card>().ToList();
             string message = Psychic.TranslateCard(currentCards[0]);
             Assert.IsNotNull(message);
         }

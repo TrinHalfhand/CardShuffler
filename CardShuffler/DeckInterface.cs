@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace CardShuffler
 {
-    public interface IDeckInterface<T>
+    public interface IDeckInterface
     {
-        List<T> GetCurrentDeck();
-        List<T> DrawCards(int count);
+        ICollection GetCurrentDeck();
+        ICollection DrawCards(int count);
         void ShuffleTheDeck(int uniqueCardCount);
     }
 }

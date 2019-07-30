@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace CardShuffler
 {
     //DAL
-    public class PlayingCardTarotDeck : IDeckInterface<PlayingCards.Card>
+    public class PlayingCardTarotDeck : IDeckInterface
     {
         private readonly PlayingCards activeDeck;
 
@@ -15,12 +16,12 @@ namespace CardShuffler
             ShuffleTheDeck();
         }
 
-        public List<PlayingCards.Card> GetCurrentDeck()
+        public ICollection GetCurrentDeck()
         {
             return activeDeck.Cards;
         }
 
-        public List<PlayingCards.Card> DrawCards(int count)
+        public ICollection DrawCards(int count)
         {
             return activeDeck.Cards.Take(count).ToList();
         }

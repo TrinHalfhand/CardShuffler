@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -9,11 +10,11 @@ namespace CardShuffler
     [Route("api/[controller]")]
     public class DeckController : ControllerBase
     {
-        private readonly IDeckInterface<PlayingCards.Card> PlayingCardDeck;
+        private readonly IDeckInterface PlayingCardDeck;
 
-        public DeckController(IDeckInterface<PlayingCards.Card> playingCardDeck)
+        public DeckController(IDeckInterface cardDeck)
         {
-            PlayingCardDeck = playingCardDeck;
+            PlayingCardDeck = cardDeck;
         }
 
         [HttpPost("ShuffleTheDeck")]
@@ -25,7 +26,7 @@ namespace CardShuffler
         [HttpGet]
         public IActionResult GetCurrentDeck()
         {
-            var jsonContent = JsonConvert.SerializeObject(new List<PlayingCards.Card>(PlayingCardDeck.GetCurrentDeck()));
+            string jsonContent = JsonConvert.SerializeObject(PlayingCardDeck.GetCurrentDeck());
             return new JsonResult(jsonContent);
         }
 
@@ -34,7 +35,7 @@ namespace CardShuffler
         [HttpGet]
         public IActionResult DrawCards(int count)
         {
-            var jsonContent = JsonConvert.SerializeObject(new List<PlayingCards.Card>(PlayingCardDeck.DrawCards(count)));
+            var jsonContent = JsonConvert.SerializeObject(PlayingCardDeck.DrawCards(count));
             return new JsonResult(jsonContent);
         }
     }
