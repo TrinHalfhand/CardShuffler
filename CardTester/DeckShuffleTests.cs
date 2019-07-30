@@ -45,7 +45,7 @@ namespace CardTester
         public void ShuffleDeckAgain()
         {
             var currentCardsResult = deck.DrawCards(3);
-            deck.ShuffleTheDeck();
+            deck.ShuffleTheDeck(3);
             var nextCardsResult = deck.DrawCards(3);
 
             //Read Json Results
@@ -57,9 +57,9 @@ namespace CardTester
             List<PlayingCards.Card> nextCards = JsonConvert.DeserializeObject<List<PlayingCards.Card>>(nextCardSet);
             List<PlayingCards.Card> currentCards = JsonConvert.DeserializeObject<List<PlayingCards.Card>>(currentCardSet);
 
-            Assert.AreNotEqual(nextCards[0].CardRank.ToString() + nextCards[0].CardSuit.ToString(), currentCards[0].CardRank.ToString() + nextCards[0].CardSuit.ToString());
-            Assert.AreNotEqual(nextCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString(), currentCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString());
-            Assert.AreNotEqual(nextCards[2].CardRank.ToString() + nextCards[2].CardSuit.ToString(), currentCards[2].CardRank.ToString() + nextCards[2].CardSuit.ToString());
+            Assert.AreNotEqual(nextCards[0].CardRank.ToString() + nextCards[0].CardSuit.ToString(), currentCards[0].CardRank.ToString() + currentCards[0].CardSuit.ToString());
+            Assert.AreNotEqual(nextCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString(), currentCards[1].CardRank.ToString() + currentCards[1].CardSuit.ToString());
+            Assert.AreNotEqual(nextCards[2].CardRank.ToString() + nextCards[2].CardSuit.ToString(), currentCards[2].CardRank.ToString() + currentCards[2].CardSuit.ToString());
         }
 
         [TestMethod]
@@ -76,28 +76,15 @@ namespace CardTester
             Assert.IsNotNull(message);
         }
 
-        [TestMethod]
-        public void ReadFirstCard_SuitTest1()
+        [DataRow("Ace of Cups", PlayingCards.Suit.Hearts, PlayingCards.Rank.Ace)]
+        [DataRow("Ace of Wands", PlayingCards.Suit.Clubs, PlayingCards.Rank.Ace)]
+        [DataRow("Knave of Swords", PlayingCards.Suit.Spades, PlayingCards.Rank.Jack)]
+        [DataTestMethod]
+        public void ReadFirstCard_SuitTest(string result, PlayingCards.Suit cardSuite, PlayingCards.Rank cardRank)
         {
-            PlayingCards.Card card = new PlayingCards.Card(PlayingCards.Suit.Hearts, PlayingCards.Rank.Ace);
+            PlayingCards.Card card = new PlayingCards.Card(cardSuite, cardRank);
             var messages = Psychic.TranslateCard(card);
-            Assert.IsTrue(messages.Contains("Ace of Cups"));
-        }
-
-        [TestMethod]
-        public void ReadFirstCard_SuitTest2()
-        {
-            PlayingCards.Card card = new PlayingCards.Card(PlayingCards.Suit.Clubs, PlayingCards.Rank.Ace);
-            var messages = Psychic.TranslateCard(card);
-            Assert.IsTrue(messages.Contains("Ace of Wands"));
-        }
-
-        [TestMethod]
-        public void ReadFirstCard_SuitTest3()
-        {
-            PlayingCards.Card card = new PlayingCards.Card(PlayingCards.Suit.Spades, PlayingCards.Rank.Jack);
-            var messages = Psychic.TranslateCard(card);
-            Assert.IsTrue(messages.Contains("Knave of Swords"));
+            Assert.IsTrue(messages.Contains(result));
         }
     }
     [TestClass]
@@ -123,12 +110,12 @@ namespace CardTester
         {
             var currentCards = deck.DrawCards(3);
             //shuffle deck
-            deck.ShuffleTheDeck();
+            deck.ShuffleTheDeck(3);
             var nextCards = deck.DrawCards(3);
 
-            Assert.AreNotEqual(nextCards[0].CardRank.ToString() + nextCards[0].CardSuit.ToString(), currentCards[0].CardRank.ToString() + nextCards[0].CardSuit.ToString());
-            Assert.AreNotEqual(nextCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString(), currentCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString());
-            Assert.AreNotEqual(nextCards[2].CardRank.ToString() + nextCards[2].CardSuit.ToString(), currentCards[2].CardRank.ToString() + nextCards[2].CardSuit.ToString());
+            Assert.AreNotEqual(nextCards[0].CardRank.ToString() + nextCards[0].CardSuit.ToString(), currentCards[0].CardRank.ToString() + currentCards[0].CardSuit.ToString());
+            Assert.AreNotEqual(nextCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString(), currentCards[1].CardRank.ToString() + currentCards[1].CardSuit.ToString());
+            Assert.AreNotEqual(nextCards[2].CardRank.ToString() + nextCards[2].CardSuit.ToString(), currentCards[2].CardRank.ToString() + currentCards[2].CardSuit.ToString());
         }
 
         [TestMethod]
@@ -139,29 +126,15 @@ namespace CardTester
             Assert.IsNotNull(message);
         }
 
-        [TestMethod]
-
-        public void ReadFirstCard_SuitTest1()
+        [DataRow("Ace of Cups", PlayingCards.Suit.Hearts, PlayingCards.Rank.Ace)]
+        [DataRow("Ace of Wands", PlayingCards.Suit.Clubs, PlayingCards.Rank.Ace)]
+        [DataRow("Knave of Swords", PlayingCards.Suit.Spades, PlayingCards.Rank.Jack)]
+        [DataTestMethod]
+        public void ReadFirstCard_SuitTest(string result, PlayingCards.Suit cardSuit, PlayingCards.Rank cardRank)
         {
-            PlayingCards.Card card = new PlayingCards.Card(PlayingCards.Suit.Hearts, PlayingCards.Rank.Ace);
+            PlayingCards.Card card = new PlayingCards.Card(cardSuit, cardRank);
             var messages = Psychic.TranslateCard(card);
-            Assert.IsTrue(messages.Contains("Ace of Cups"));
-        }
-
-        [TestMethod]
-        public void ReadFirstCard_SuitTest2()
-        {
-            PlayingCards.Card card = new PlayingCards.Card(PlayingCards.Suit.Clubs, PlayingCards.Rank.Ace);
-            var messages = Psychic.TranslateCard(card);
-            Assert.IsTrue(messages.Contains("Ace of Wands"));
-        }
-
-        [TestMethod]
-        public void ReadFirstCard_SuitTest3()
-        {
-            PlayingCards.Card card = new PlayingCards.Card(PlayingCards.Suit.Spades, PlayingCards.Rank.Jack);
-            var messages = Psychic.TranslateCard(card);
-            Assert.IsTrue(messages.Contains("Knave of Swords"));
+            Assert.IsTrue(messages.Contains(result));
         }
     }
 }

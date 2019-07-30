@@ -17,9 +17,9 @@ namespace CardShuffler
         }
 
         [HttpPost("ShuffleTheDeck")]
-        public void ShuffleTheDeck()
+        public void ShuffleTheDeck(int uniqueCardCount = 0)
         {
-            PlayingCardDeck.ShuffleTheDeck();
+            PlayingCardDeck.ShuffleTheDeck(uniqueCardCount);
         }
 
         [HttpGet]
@@ -28,6 +28,8 @@ namespace CardShuffler
             var jsonContent = JsonConvert.SerializeObject(new List<PlayingCards.Card>(PlayingCardDeck.GetCurrentDeck()));
             return new JsonResult(jsonContent);
         }
+
+
 
         [HttpGet]
         public IActionResult DrawCards(int count)

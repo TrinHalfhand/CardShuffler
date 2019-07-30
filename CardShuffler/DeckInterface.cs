@@ -6,6 +6,6 @@ namespace CardShuffler
     {
         List<T> GetCurrentDeck();
         List<T> DrawCards(int count);
-        void ShuffleTheDeck();
+        void ShuffleTheDeck(int uniqueCardCount);
     }
 }
