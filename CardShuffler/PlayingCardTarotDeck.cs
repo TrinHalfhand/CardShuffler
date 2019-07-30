@@ -8,9 +8,14 @@ namespace CardShuffler
     //DAL
     public class PlayingCardTarotDeck : IDeckInterface
     {
-        private readonly PlayingCards activeDeck;
+        private readonly Deck activeDeck;
 
-        public PlayingCardTarotDeck(PlayingCards cards)
+        public PlayingCardTarotDeck()
+        {
+            activeDeck = new Deck();
+            ShuffleTheDeck();
+        }
+        public PlayingCardTarotDeck(Deck cards)
         {
             activeDeck = cards;
             ShuffleTheDeck();

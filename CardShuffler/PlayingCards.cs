@@ -5,7 +5,7 @@ using System.ComponentModel;
 namespace CardShuffler
 {
     //Database
-    public class PlayingCards
+    public class Deck
     {
         public enum Suit
         {
@@ -46,7 +46,7 @@ namespace CardShuffler
 
         public List<Card> Cards { get; set; }
 
-        public PlayingCards()
+        public Deck()
         {
             Cards = new List<Card>();
 

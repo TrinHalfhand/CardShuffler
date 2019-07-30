@@ -27,7 +27,7 @@ namespace CardTester
 
             Assert.IsTrue(currentDeckResult is JsonResult);
             var currentText = (currentDeckResult as JsonResult).Value.ToString();
-            var currentDeck = JsonConvert.DeserializeObject<List<PlayingCards.Card>>(currentText);
+            var currentDeck = JsonConvert.DeserializeObject<List<Deck.Card>>(currentText);
             Assert.AreEqual(currentDeck.Count(), 56);
         }
         public void TarotReadHasRightCount()
@@ -37,7 +37,7 @@ namespace CardTester
             Assert.IsTrue(currentDeckResult is JsonResult);
 
             string current = (currentDeckResult as JsonResult).Value.ToString();
-            List<PlayingCards.Card> currentDeck = JsonConvert.DeserializeObject<List<PlayingCards.Card>>(current);
+            List<Deck.Card> currentDeck = JsonConvert.DeserializeObject<List<Deck.Card>>(current);
             Assert.AreEqual(currentDeck.Count(), 3);
         }
 
@@ -54,8 +54,8 @@ namespace CardTester
             Assert.IsTrue(nextCardsResult is JsonResult);
             string nextCardSet = (nextCardsResult as JsonResult).Value.ToString();
 
-            List<PlayingCards.Card> nextCards = JsonConvert.DeserializeObject<List<PlayingCards.Card>>(nextCardSet);
-            List<PlayingCards.Card> currentCards = JsonConvert.DeserializeObject<List<PlayingCards.Card>>(currentCardSet);
+            List<Deck.Card> nextCards = JsonConvert.DeserializeObject<List<Deck.Card>>(nextCardSet);
+            List<Deck.Card> currentCards = JsonConvert.DeserializeObject<List<Deck.Card>>(currentCardSet);
 
             Assert.AreNotEqual(nextCards[0].CardRank.ToString() + nextCards[0].CardSuit.ToString(), currentCards[0].CardRank.ToString() + currentCards[0].CardSuit.ToString());
             Assert.AreNotEqual(nextCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString(), currentCards[1].CardRank.ToString() + currentCards[1].CardSuit.ToString());
@@ -70,19 +70,19 @@ namespace CardTester
             Assert.IsTrue(currentDeckResult is JsonResult);
 
             string current = (currentDeckResult as JsonResult).Value.ToString();
-            List<PlayingCards.Card> currentCards = JsonConvert.DeserializeObject<List<PlayingCards.Card>>(current);
+            List<Deck.Card> currentCards = JsonConvert.DeserializeObject<List<Deck.Card>>(current);
 
             string message = Psychic.TranslateCard(currentCards[0]);
             Assert.IsNotNull(message);
         }
 
-        [DataRow("Ace of Cups", PlayingCards.Suit.Hearts, PlayingCards.Rank.Ace)]
-        [DataRow("Ace of Wands", PlayingCards.Suit.Clubs, PlayingCards.Rank.Ace)]
-        [DataRow("Knave of Swords", PlayingCards.Suit.Spades, PlayingCards.Rank.Jack)]
+        [DataRow("Ace of Cups", Deck.Suit.Hearts, Deck.Rank.Ace)]
+        [DataRow("Ace of Wands", Deck.Suit.Clubs, Deck.Rank.Ace)]
+        [DataRow("Knave of Swords", Deck.Suit.Spades, Deck.Rank.Jack)]
         [DataTestMethod]
-        public void ReadFirstCard_SuitTest(string result, PlayingCards.Suit cardSuite, PlayingCards.Rank cardRank)
+        public void ReadFirstCard_SuitTest(string result, Deck.Suit cardSuite, Deck.Rank cardRank)
         {
-            PlayingCards.Card card = new PlayingCards.Card(cardSuite, cardRank);
+            Deck.Card card = new Deck.Card(cardSuite, cardRank);
             var messages = Psychic.TranslateCard(card);
             Assert.IsTrue(messages.Contains(result));
         }
@@ -90,7 +90,7 @@ namespace CardTester
     [TestClass]
     public class PlayingCardTester
     {
-        readonly PlayingCardTarotDeck deck = new PlayingCardTarotDeck(new PlayingCards());
+        readonly PlayingCardTarotDeck deck = new PlayingCardTarotDeck(new Deck());
 
         [TestMethod]
 
@@ -108,10 +108,10 @@ namespace CardTester
         [TestMethod]
         public void ShuffleDeckAgain()
         {
-            var currentCards = deck.DrawCards(3).OfType<PlayingCards.Card>().ToList(); 
+            var currentCards = deck.DrawCards(3).OfType<Deck.Card>().ToList(); 
             //shuffle deck
             deck.ShuffleTheDeck(3);
-            var nextCards = deck.DrawCards(3).OfType<PlayingCards.Card>().ToList(); 
+            var nextCards = deck.DrawCards(3).OfType<Deck.Card>().ToList(); 
 
             Assert.AreNotEqual(nextCards[0].CardRank.ToString() + nextCards[0].CardSuit.ToString(), currentCards[0].CardRank.ToString() + currentCards[0].CardSuit.ToString());
             Assert.AreNotEqual(nextCards[1].CardRank.ToString() + nextCards[1].CardSuit.ToString(), currentCards[1].CardRank.ToString() + currentCards[1].CardSuit.ToString());
@@ -121,18 +121,18 @@ namespace CardTester
         [TestMethod]
         public void ReadFirstCard_MustHaveContent()
         {
-            var currentCards = deck.DrawCards(3).OfType<PlayingCards.Card>().ToList();
+            var currentCards = deck.DrawCards(3).OfType<Deck.Card>().ToList();
             string message = Psychic.TranslateCard(currentCards[0]);
             Assert.IsNotNull(message);
         }
 
-        [DataRow("Ace of Cups", PlayingCards.Suit.Hearts, PlayingCards.Rank.Ace)]
-        [DataRow("Ace of Wands", PlayingCards.Suit.Clubs, PlayingCards.Rank.Ace)]
-        [DataRow("Knave of Swords", PlayingCards.Suit.Spades, PlayingCards.Rank.Jack)]
+        [DataRow("Ace of Cups", Deck.Suit.Hearts, Deck.Rank.Ace)]
+        [DataRow("Ace of Wands", Deck.Suit.Clubs, Deck.Rank.Ace)]
+        [DataRow("Knave of Swords", Deck.Suit.Spades, Deck.Rank.Jack)]
         [DataTestMethod]
-        public void ReadFirstCard_SuitTest(string result, PlayingCards.Suit cardSuit, PlayingCards.Rank cardRank)
+        public void ReadFirstCard_SuitTest(string result, Deck.Suit cardSuit, Deck.Rank cardRank)
         {
-            PlayingCards.Card card = new PlayingCards.Card(cardSuit, cardRank);
+            Deck.Card card = new Deck.Card(cardSuit, cardRank);
             var messages = Psychic.TranslateCard(card);
             Assert.IsTrue(messages.Contains(result));
         }

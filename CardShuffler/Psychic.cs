@@ -25,9 +25,9 @@ namespace CardShuffler
             return enumerationValue.ToString();
         }
 
-        public static string TranslateCard(PlayingCards.Card cardToTranslate)
+        public static string TranslateCard(Deck.Card cardToTranslate)
         {
-            string rankMeaning = PlayingCards.RankMeaning(cardToTranslate);
+            string rankMeaning = Deck.RankMeaning(cardToTranslate);
             return rankMeaning;
         }
 
