@@ -1,22 +1,25 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace CardShuffler
 {
     //Database
-    public class Deck
+    public class PlayingCards: BaseCards
     {
-        public enum Suit
+        [JsonConverter(typeof(StringEnumConverter))]
+        public new enum Suit
         {
-            [Description("TarotDeck.Cups")]
             Hearts,
             Diamonds,
             Clubs,
             Spades
         }
 
-        public enum Rank
+        [JsonConverter(typeof(StringEnumConverter))]
+        public new enum Rank
         {
             Ace,
             Two,
@@ -33,7 +36,7 @@ namespace CardShuffler
             King
         }
 
-        public class Card
+        public new class Card
         {
             public Suit CardSuit { get; set; }
             public Rank CardRank { get; set; }
@@ -44,9 +47,9 @@ namespace CardShuffler
             }
         }
 
-        public List<Card> Cards { get; set; }
+        public new List<Card> Cards { get; set; }
 
-        public Deck()
+        public PlayingCards()
         {
             Cards = new List<Card>();
 
