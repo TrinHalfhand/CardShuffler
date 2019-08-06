@@ -12,8 +12,9 @@ namespace CardShuffler
     {
         private readonly TarotCards activeDeck;
 
-        public TarotDeck(TarotCards cards)
+        public TarotDeck()
         {
+            TarotCards cards = new TarotCards();
             activeDeck = cards;
             ShuffleTheDeck();
         }
@@ -25,7 +26,9 @@ namespace CardShuffler
 
         public IActionResult DrawCards(int count)
         {
-            return new JsonResult(JsonConvert.SerializeObject(activeDeck.Cards.Take(count).ToList()));
+            //reformat details a bit
+            var response = activeDeck.Cards.Take(count).ToList();
+            return new JsonResult(JsonConvert.SerializeObject(response));
         }
 
         public void ShuffleTheDeck(int uniqueCardCount = 0)

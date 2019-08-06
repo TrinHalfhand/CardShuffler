@@ -37,8 +37,7 @@ namespace CardShuffler
         [ProducesResponseType(typeof(PlayingCards.Card), StatusCodes.Status200OK)]
         public IActionResult DrawCards(int count)
         {
-            var jsonContent = JsonConvert.SerializeObject(cardDeck.DrawCards(count));
-            return new JsonResult(jsonContent);
+            return cardDeck.DrawCards(count);
         }
     }
 }

@@ -17,11 +17,6 @@ namespace CardShuffler
             activeDeck = new PlayingCards();
             ShuffleTheDeck();
         }
-        public PlayingCardTarotDeck(PlayingCards cards)
-        {
-            activeDeck = cards;
-            ShuffleTheDeck();
-        }
 
         public IActionResult GetCurrentDeck()
         {
